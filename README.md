@@ -4,109 +4,109 @@
 [![Paper](https://img.shields.io/badge/Paper-1.21-blue.svg)](https://papermc.io/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-## 📋 Descrizione
+## 📋 Description
 
-**FactionAddon** è un plugin Minecraft che estende le funzionalità di chat per server con sistema di fazioni. Questo plugin è basato su **LPC (LuckPerms Chat)** e include funzionalità aggiuntive specifiche per server di fazioni.
+**FactionAddon** is a Minecraft plugin that extends chat functionality for servers with faction systems. This plugin is based on **LPC (LuckPerms Chat)** and includes additional features specifically designed for faction servers.
 
-> ⚠️ **Attenzione**: Questo plugin è attualmente **ancora in sviluppo**. Alcune funzionalità potrebbero non essere completamente implementate o potrebbero contenere bug.
+> ⚠️ **Warning**: This plugin is currently **still in development**. Some features may not be fully implemented or may contain bugs.
 
-## 🚀 Caratteristiche
+## 🚀 Features
 
-### Funzionalità Principali
-- **Sistema di Chat Avanzato**: Basato su LPC con supporto per LuckPerms
-- **Visualizzazione Item in Chat**: Mostra item e inventari direttamente nella chat
-- **Sistema di Permessi**: Integrazione completa con LuckPerms
-- **Controllo CAPS**: Sistema automatico di rilevamento e gestione messaggi in maiuscolo
-- **Webhook Discord**: Notifiche automatiche per lo staff
-- **PlaceholderAPI**: Supporto completo per placeholders personalizzati
+### Main Features
+- **Advanced Chat System**: Based on LPC with LuckPerms support
+- **Item Display in Chat**: Shows items and inventories directly in chat
+- **Permission System**: Complete integration with LuckPerms
+- **CAPS Control**: Automatic detection and management of uppercase messages
+- **Discord Webhook**: Automatic staff notifications
+- **PlaceholderAPI**: Complete support for custom placeholders
 
-### Comandi Disponibili
-- `/showitem` - Mostra un item nella chat
-- `/showinv` - Mostra l'inventario nella chat  
-- `/factionaddonreload` - Ricarica le configurazioni
+### Available Commands
+- `/showitem` - Show an item in chat
+- `/showinv` - Show inventory in chat  
+- `/factionaddonreload` - Reload configurations
 
-### Permessi
-- `lpc.colorcodes` - Permette l'uso di codici colore
-- `lpc.rgbcodes` - Permette l'uso di codici RGB
-- `staff.caps` - Esenzione dal controllo CAPS
-- `staff.notify` - Riceve notifiche staff
+### Permissions
+- `lpc.colorcodes` - Allows use of color codes
+- `lpc.rgbcodes` - Allows use of RGB codes
+- `staff.caps` - Exemption from CAPS control
+- `staff.notify` - Receives staff notifications
 
-## 📦 Installazione
+## 📦 Installation
 
-### Requisiti
-- **Java 21** o superiore
-- **Paper 1.21** o superiore
-- **LuckPerms 5.4** o superiore
-- **PlaceholderAPI 2.11.6** o superiore
+### Requirements
+- **Java 21** or higher
+- **Paper 1.21** or higher
+- **LuckPerms 5.4** or higher
+- **PlaceholderAPI 2.11.6** or higher
 
-### Passi di Installazione
-1. Scarica l'ultima versione del plugin
-2. Posiziona il file `.jar` nella cartella `plugins/`
-3. Riavvia il server
-4. Configura il plugin secondo le tue esigenze
+### Installation Steps
+1. Download the latest version of the plugin
+2. Place the `.jar` file in the `plugins/` folder
+3. Restart the server
+4. Configure the plugin according to your needs
 
-## ⚙️ Configurazione
+## ⚙️ Configuration
 
-Il plugin genera automaticamente un file `config.yml` con le seguenti opzioni:
+The plugin automatically generates a `config.yml` file with the following options:
 
 ```yaml
-# Configurazione Webhook Discord
+# Discord Webhook Configuration
 webhook:
   url: "YOUR_DISCORD_WEBHOOK_URL"
 
-# Controllo CAPS
+# CAPS Control
 warnOnCaps: true
 ```
 
-## 🔧 Sviluppo
+## 🔧 Development
 
-### Tecnologie Utilizzate
+### Technologies Used
 - **Java 21**
 - **Paper API**
 - **LuckPerms API**
 - **PlaceholderAPI**
-- **MiniMessage** per la formattazione del testo
-- **Lombok** per la riduzione del boilerplate
+- **MiniMessage** for text formatting
+- **Lombok** for boilerplate reduction
 
-### Struttura del Progetto
+### Project Structure
 ```
 src/main/java/com/minegolem/factionAddon/
-├── commands/          # Comandi del plugin
+├── commands/          # Plugin commands
 ├── listeners/         # Event listeners
 ├── utils/            # Utility classes
-├── webhook/          # Sistema webhook Discord
-├── FactionAddon.java # Classe principale
-├── Logger.java       # Sistema di logging
+├── webhook/          # Discord webhook system
+├── FactionAddon.java # Main class
+├── Logger.java       # Logging system
 └── ChatInventoryHolder.java
 ```
 
-## 🤝 Contribuire
+## 🤝 Contributing
 
-Questo progetto è aperto ai contributi! Se vuoi contribuire:
+This project is open to contributions! If you want to contribute:
 
-1. Fai un fork del repository
-2. Crea un branch per la tua feature (`git checkout -b feature/AmazingFeature`)
-3. Committa le tue modifiche (`git commit -m 'Add some AmazingFeature'`)
-4. Pusha al branch (`git push origin feature/AmazingFeature`)
-5. Apri una Pull Request
+1. Fork the repository
+2. Create a branch for your feature (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-## 📝 Licenza
+## 📝 License
 
-Questo progetto è distribuito sotto licenza MIT. Vedi il file `LICENSE` per maggiori dettagli.
+This project is distributed under the MIT license. See the `LICENSE` file for more details.
 
-## 🙏 Ringraziamenti
+## 🙏 Acknowledgments
 
-- **LPC (LuckPerms Chat)** - Plugin originale su cui è basato questo fork
-- **LuckPerms Team** - Per l'ottimo sistema di permessi
-- **PaperMC** - Per l'API di sviluppo
-- **PlaceholderAPI** - Per il sistema di placeholders
+- **LPC (LuckPerms Chat)** - Original plugin on which this fork is based
+- **LuckPerms Team** - For the excellent permission system
+- **PaperMC** - For the development API
+- **PlaceholderAPI** - For the placeholder system
 
-## 📞 Supporto
+## 📞 Support
 
-Per supporto o domande:
-- Apri una issue su GitHub
-- Contatta l'autore: **WorkWolf_2**
+For support or questions:
+- Open an issue on GitHub
+- Contact the author: **WorkWolf_2**
 
 ---
 
-**Nota**: Questo plugin è un fork di LPC e mantiene la compatibilità con le funzionalità originali aggiungendo nuove caratteristiche specifiche per server di fazioni.
+**Note**: This plugin is a fork of LPC and maintains compatibility with the original features while adding new characteristics specific to faction servers.
