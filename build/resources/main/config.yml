@@ -1,0 +1,16 @@
+warnOnCaps: true
+
+webhook:
+  url: https://discord.com/api/webhooks/1409899841433243798/Nnu-ZygmYTh6U216yELFyi4hW8aPhvEWA2cA198IsVfBinazKfVcUK_Ie-NDOb0hr0XC
+
+gui:
+  inventory:
+    name: "<gray><b>Inventario di {player}</b></gray>"
+
+chat-format: "{prefix}{name}&r: {message}"
+
+# Set the format per group.
+# Note: Option for more advanced users. Remove comments to run.
+group-formats:
+#  default: "[default] {name}&r: {message}"
+#  admin: "[admin] {name}&r: {message}"
