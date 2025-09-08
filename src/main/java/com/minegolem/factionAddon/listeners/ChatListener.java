@@ -35,10 +35,12 @@ public class ChatListener implements Listener, ChatRenderer {
         ItemStack itemInHand = player.getInventory().getItemInMainHand();
 
         if (FactionAddon.CHATMUTED) {
-            event.setCancelled(true);
+            if (!player.hasPermission("factionaddon.clearchat.mutebypass")) {
+                event.setCancelled(true);
 
-            player.sendMessage(plugin.mm.deserialize("<red>La chat è disabilita!</red>"));
-            return;
+                player.sendMessage(plugin.mm.deserialize("<red>La chat è disabilita!</red>"));
+                return;
+            }
         }
 
         event.renderer(this);
