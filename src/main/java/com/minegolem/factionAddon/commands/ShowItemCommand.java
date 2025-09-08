@@ -44,7 +44,7 @@ public class ShowItemCommand implements CommandExecutor {
 
         ItemStack itemToShow = FactionAddon.itemMessagesUUID.get(uuid);
 
-        Component itemName = itemToShow.getItemMeta().hasDisplayName() ? itemToShow.displayName() : Component.text(itemToShow.getType().name().toLowerCase().replace('_', ' '));
+        Component itemName = itemToShow.getItemMeta().hasDisplayName() || itemToShow.getItemMeta() != null ? itemToShow.displayName() : Component.text(itemToShow.getType().name().toLowerCase().replace('_', ' '));
 
         Inventory inventory = Bukkit.createInventory( new ChatInventoryHolder(), 27, itemName);
         inventory.setItem(13, itemToShow);
