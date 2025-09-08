@@ -34,6 +34,13 @@ public class ChatListener implements Listener, ChatRenderer {
         Player player = event.getPlayer();
         ItemStack itemInHand = player.getInventory().getItemInMainHand();
 
+        if (FactionAddon.CHATMUTED) {
+            event.setCancelled(true);
+
+            player.sendMessage(plugin.mm.deserialize("<red>La chat è disabilita!</red>"));
+            return;
+        }
+
         event.renderer(this);
 
         String rawMessage = PlainTextComponentSerializer.plainText().serialize(event.message());
@@ -105,7 +112,8 @@ public class ChatListener implements Listener, ChatRenderer {
            suffix = Component.empty();
        }
 
-       return prefix.append(message).append(suffix);
+        message = message.style(prefix.style());
+        return prefix.append(message).append(suffix);
 
     }
 

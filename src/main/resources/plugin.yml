@@ -10,4 +10,6 @@ commands:
     description: show chat Inv
   factionaddonreload:
     description: reload configs
+  cc:
+    description: clearchat
 

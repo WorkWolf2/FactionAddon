@@ -1,5 +1,6 @@
 package com.minegolem.factionAddon;
 
+import com.minegolem.factionAddon.commands.CcCommand;
 import com.minegolem.factionAddon.commands.ReloadCommand;
 import com.minegolem.factionAddon.commands.ShowItemCommand;
 import com.minegolem.factionAddon.commands.ShowInvCommand;
@@ -29,6 +30,8 @@ public final class FactionAddon extends JavaPlugin {
     public static final HashMap<UUID, ItemStack> itemMessagesUUID = new HashMap<UUID, ItemStack>();
     public static final HashMap<UUID, PlayerInventory> inventoriesUUID = new HashMap<UUID, PlayerInventory>();
 
+    public static boolean CHATMUTED = false;
+
     @Override
     public void onEnable() {
         getServer().getPluginManager().registerEvents(new PlayerListener(this), this);
@@ -38,6 +41,7 @@ public final class FactionAddon extends JavaPlugin {
         Objects.requireNonNull(getCommand("showitem")).setExecutor(new ShowItemCommand(this));
         Objects.requireNonNull(getCommand("showinv")).setExecutor(new ShowInvCommand(this));
         Objects.requireNonNull(getCommand("factionaddonreload")).setExecutor(new ReloadCommand(this));
+        Objects.requireNonNull(getCommand("cc")).setExecutor(new CcCommand(this));
 
         saveDefaultConfig();
         getConfig().options().copyDefaults(true);
