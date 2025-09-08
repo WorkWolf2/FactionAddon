@@ -11,6 +11,7 @@ import lombok.Getter;
 import net.kyori.adventure.text.minimessage.MiniMessage;
 import net.luckperms.api.LuckPerms;
 import org.bukkit.Bukkit;
+import org.bukkit.command.PluginCommand;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.PlayerInventory;
 import org.bukkit.plugin.RegisteredServiceProvider;
@@ -41,7 +42,13 @@ public final class FactionAddon extends JavaPlugin {
         Objects.requireNonNull(getCommand("showitem")).setExecutor(new ShowItemCommand(this));
         Objects.requireNonNull(getCommand("showinv")).setExecutor(new ShowInvCommand(this));
         Objects.requireNonNull(getCommand("factionaddonreload")).setExecutor(new ReloadCommand(this));
-        Objects.requireNonNull(getCommand("cc")).setExecutor(new CcCommand(this));
+
+        PluginCommand ClearChat = getCommand("cc");
+        CcCommand ccCommand = new CcCommand(this);
+
+        assert ClearChat != null;
+        ClearChat.setExecutor(ccCommand);
+        ClearChat.setTabCompleter(ccCommand);
 
         saveDefaultConfig();
         getConfig().options().copyDefaults(true);

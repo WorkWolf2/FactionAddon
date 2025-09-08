@@ -6,11 +6,16 @@ import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.command.TabCompleter;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
+import java.util.Arrays;
+import java.util.List;
 
 @RequiredArgsConstructor
-public class CcCommand implements CommandExecutor {
+public class CcCommand implements CommandExecutor, TabCompleter {
 
     private final FactionAddon plugin;
 
@@ -40,13 +45,13 @@ public class CcCommand implements CommandExecutor {
                     FactionAddon.CHATMUTED = false;
 
                     Bukkit.getOnlinePlayers().forEach(p -> {
-                        p.sendMessage(plugin.mm.deserialize("<red><b>Chat mutata da" + player.getName() + "</red>"));
+                        p.sendMessage(plugin.mm.deserialize("<green><b>La chat è ora disponibile!</green>"));
                     });
                 } else {
                     FactionAddon.CHATMUTED = true;
 
                     Bukkit.getOnlinePlayers().forEach(p -> {
-                        p.sendMessage(plugin.mm.deserialize("<green><b>La chat è ora disponibile!</green>"));
+                        p.sendMessage(plugin.mm.deserialize("<red><b>Chat mutata da " + player.getName() + "</red>"));
                     });
                 }
             }
@@ -62,5 +67,13 @@ public class CcCommand implements CommandExecutor {
         }
 
         return true;
+    }
+
+    @Override
+    public @Nullable List<String> onTabComplete(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String s, @NotNull String[] args) {
+        if (args.length == 1) {
+            return Arrays.asList("mute", "my");
+        }
+        return List.of();
     }
 }
