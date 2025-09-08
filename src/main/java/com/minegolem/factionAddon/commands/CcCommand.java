@@ -24,15 +24,9 @@ public class CcCommand implements CommandExecutor, TabCompleter {
         if (!(sender instanceof Player player)) return true;
 
         if (args.length == 0) {
-            if (!player.hasPermission("factionaddon.clearchat.use")) return true;
+            clearChat(player);
 
-            for(Player p : Bukkit.getOnlinePlayers()) {
-                for (int i = 0; i <= 100; i++) {
-                    if (p.hasPermission("factionaddon.clearchat.bypass")) continue;
-                    p.sendMessage(" ");
-                }
-                p.sendMessage(plugin.mm.deserialize("<green>Chat cancellata da " + player.getName() + "</green>"));
-            }
+            return true;
         }
 
         if (args.length > 1) return true;
@@ -64,6 +58,9 @@ public class CcCommand implements CommandExecutor, TabCompleter {
 
                 player.sendMessage(plugin.mm.deserialize("<green>Hai cancellato la tua chat!</green>"));
             }
+            default -> {
+                clearChat(player);
+            }
         }
 
         return true;
@@ -75,5 +72,17 @@ public class CcCommand implements CommandExecutor, TabCompleter {
             return Arrays.asList("mute", "my");
         }
         return List.of();
+    }
+
+    private void clearChat(Player player) {
+        if (!player.hasPermission("factionaddon.clearchat.use")) return;
+
+        for(Player p : Bukkit.getOnlinePlayers()) {
+            for (int i = 0; i <= 100; i++) {
+                if (p.hasPermission("factionaddon.clearchat.bypass")) continue;
+                p.sendMessage(" ");
+            }
+            p.sendMessage(plugin.mm.deserialize("<green>Chat cancellata da " + player.getName() + "</green>"));
+        }
     }
 }
